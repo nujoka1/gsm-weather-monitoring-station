@@ -4,7 +4,7 @@
 
 A full-stack weather telemetry product for an Arduino Uno, AHT20, BMP280, 16x2 I2C LCD and SIM800L on MTN Nigeria. The station displays measurements locally, sends a five-minute HTTPS telemetry record to a protected Supabase Edge Function, and exposes read-only observations through a mobile-first dashboard.
 
-> Current status: local implementation. Cloud resources, a real SIM800L TLS session, physical sensor behavior, and Android APK are not yet verified.
+> Current status: the Supabase backend and public dashboard are deployed, the configured firmware is flashed, live AHT20/BMP280 serial readings are verified, and the Android debug APK builds. The SIM800L/MTN path, LCD behavior, and Android installation on a real device remain unverified.
 
 ## System map
 
@@ -45,6 +45,10 @@ AHT20 + BMP280 -- I2C --> Arduino Uno --> LCD
 From `dashboard`, run `npm run android:build`. The verified debug artifact is generated at `android/app/build/outputs/apk/debug/app-debug.apk`. This debug-signed package is for testing only; release signing, Play Store configuration, and real-device behavior require separate verification.
 
 The browser has public `SELECT` access to active stations and their readings because this is designed as an academic public weather dashboard. It has no insert, update, or delete grants or policies. Device writes go only through the authenticated server-side function.
+
+## Live dashboard
+
+The production dashboard is available at <https://nujoka1.github.io/gsm-weather-monitoring-station/>. It is deployed from `main` by the GitHub Pages workflow and reads active-station measurements through Supabase RLS-protected, read-only access.
 
 ## Verification boundary
 

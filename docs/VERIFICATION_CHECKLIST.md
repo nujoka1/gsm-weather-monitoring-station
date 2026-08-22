@@ -17,7 +17,7 @@
 | Malformed and impossible measurements rejected | PASS | Live requests returned `400` and `422` |
 | Authenticated request inserts one row | PASS | Live request returned `201`; query confirmed exactly one synthetic row with ID 1 |
 | Dashboard typecheck/test/build | PASS | TypeScript, ESLint, Vitest, and Vite production build |
-| Dashboard displays real data | PASS | Configured to the live project containing verified synthetic reading ID 1 |
-| GitHub repository pushed | PASS | Public `nujoka1/gsm-weather-monitoring-station`, branch `main` |
+| Dashboard displays backend data | PASS | Headless production-browser run rendered synthetic reading ID 1 as 28.1 C with its received timestamp |
+| GitHub repository and Pages deployment | PASS | Public `nujoka1/gsm-weather-monitoring-station`, branch `main`; Pages workflow succeeded and production returned HTTP 200 |
 | Android debug APK builds | PASS | Capacitor 8.4.2; Gradle `assembleDebug`; 4,339,279-byte APK |
 | Android installation and runtime workflow | NOT VERIFIED | ADB daemon is blocked in this environment; install on a real Android device |

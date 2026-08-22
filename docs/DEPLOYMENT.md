@@ -14,6 +14,8 @@ Run database security and performance advisors after applying the migration. Con
 
 Only configure `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY`. Never put a Supabase secret/service-role key in any `VITE_` variable. Build with `npm run build` from `dashboard`; deploy the generated `dist` directory to a static HTTPS host.
 
+Current production deployment: <https://nujoka1.github.io/gsm-weather-monitoring-station/>. GitHub Pages publishes the dashboard from the workflow in `.github/workflows/pages.yml` after type checking, linting, tests, and a production build succeed.
+
 ## Device endpoint tests
 
 - no `x-station-key` -> `401`
