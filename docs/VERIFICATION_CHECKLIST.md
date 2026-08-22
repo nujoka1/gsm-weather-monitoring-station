@@ -18,6 +18,6 @@
 | Authenticated request inserts one row | PASS | Live request returned `201`; query confirmed exactly one synthetic row with ID 1 |
 | Dashboard typecheck/test/build | PASS | TypeScript, ESLint, Vitest, and Vite production build |
 | Dashboard displays real data | PASS | Configured to the live project containing verified synthetic reading ID 1 |
-| GitHub repository pushed | BLOCKED | Git initialization plus authenticated GitHub CLI |
+| GitHub repository pushed | PASS | Public `nujoka1/gsm-weather-monitoring-station`, branch `main` |
 | Android debug APK builds | PASS | Capacitor 8.4.2; Gradle `assembleDebug`; 4,339,279-byte APK |
 | Android installation and runtime workflow | NOT VERIFIED | ADB daemon is blocked in this environment; install on a real Android device |
