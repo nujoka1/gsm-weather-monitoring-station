@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+**/secrets.h
+node_modules/
+dist/
+coverage/
+.DS_Store
+*.apk
+*.hex
+*.elf
+.supabase/
+supabase/.temp/
+

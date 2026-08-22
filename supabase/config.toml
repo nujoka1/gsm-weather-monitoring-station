@@ -1,0 +1,5 @@
+project_id = "gsm-weather-monitoring-station"
+
+[functions.ingest-weather]
+verify_jwt = false
+

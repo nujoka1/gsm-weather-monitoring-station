@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Abuja Weather Station</string>
+    <string name="title_activity_main">Abuja Weather Station</string>
+    <string name="package_name">com.nujoka.weatherstation</string>
+    <string name="custom_url_scheme">com.nujoka.weatherstation</string>
+</resources>
