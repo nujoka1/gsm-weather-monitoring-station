@@ -1,0 +1,59 @@
+name: Build Android debug app
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "dashboard/**"
+      - ".github/workflows/android.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-debug-apk:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: dashboard
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: dashboard/package-lock.json
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 21
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v5
+      - name: Install pinned dependencies
+        run: npm ci
+      - name: Type-check
+        run: npm run typecheck
+      - name: Lint
+        run: npm run lint
+      - name: Test
+        run: npm test
+      - name: Build debug APK
+        env:
+          VITE_SUPABASE_URL: https://gwisrdrvhwpawahlqajm.supabase.co
+          VITE_SUPABASE_PUBLISHABLE_KEY: sb_publishable_sPQnoGMj5_qeJAe7CP_pTg_vj2B6ZQ9
+        run: npm run android:build
+      - name: Create checksum
+        run: sha256sum android/app/build/outputs/apk/debug/app-debug.apk > android/app/build/outputs/apk/debug/app-debug.apk.sha256
+      - name: Upload Android app
+        uses: actions/upload-artifact@v4
+        with:
+          name: AtmosWatch-Android-debug
+          path: |
+            dashboard/android/app/build/outputs/apk/debug/app-debug.apk
+            dashboard/android/app/build/outputs/apk/debug/app-debug.apk.sha256
+          if-no-files-found: error
+          retention-days: 30
