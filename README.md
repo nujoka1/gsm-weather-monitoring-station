@@ -44,6 +44,8 @@ AHT20 + BMP280 -- I2C --> Arduino Uno --> LCD
 
 From `dashboard`, run `npm run android:build`. The verified debug artifact is generated at `android/app/build/outputs/apk/debug/app-debug.apk`. This debug-signed package is for testing only; release signing, Play Store configuration, and real-device behavior require separate verification.
 
+GitHub also rebuilds the debug APK through the **Build Android debug app** workflow. Open the latest successful workflow run and download the `AtmosWatch-Android-debug` artifact. GitHub retains this test artifact for 30 days; it is not a signed production release.
+
 The browser has public `SELECT` access to active stations and their readings because this is designed as an academic public weather dashboard. It has no insert, update, or delete grants or policies. Device writes go only through the authenticated server-side function.
 
 ## Live dashboard
